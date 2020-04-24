@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "757197348628",
+    "firebase_url": "https://instafirst-a91d7.firebaseio.com",
+    "project_id": "instafirst-a91d7",
+    "storage_bucket": "instafirst-a91d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757197348628:android:2e68d2aaca2f8f44882c01",
+        "android_client_info": {
+          "package_name": "com.example.loginul"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "757197348628-5v424es6khno3v8s8ars8bskebvf29kb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp5s2J-AeV7miSDQlziln1BhqoivxYvCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "757197348628-5v424es6khno3v8s8ars8bskebvf29kb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
