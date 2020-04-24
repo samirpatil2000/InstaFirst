@@ -12,8 +12,8 @@
             tools:layout="@layout/fragment_home"/>
 
     <fragment
-            android:id="@+id/navigation_dashboard"
-            android:name="com.example.loginul.ui.dashboard.DashboardFragment"
+            android:id="@+id/navigation_search"
+            android:name="com.example.loginul.ui.search.SearchFragment"
             android:label="@string/title_dashboard"
             tools:layout="@layout/fragment_dashboard"/>
 
@@ -22,4 +22,16 @@
             android:name="com.example.loginul.ui.notifications.NotificationsFragment"
             android:label="@string/title_notifications"
             tools:layout="@layout/fragment_notifications"/>
+    <fragment
+            android:id="@+id/navigation_create_post"
+            android:name="com.example.loginul.ui.createPost.CreatePostFragment"
+            android:label="Create Post"
+            tools:layout="@layout/fragment_createpost"/>
+
+    <fragment
+            android:id="@+id/navigation_profile"
+            android:name="com.example.loginul.ui.profile.ProfileFragment"
+            android:label="Profile"
+            tools:layout="@layout/fragment_profile"/>
+
 </navigation>
