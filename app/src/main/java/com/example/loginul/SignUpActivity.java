@@ -66,14 +66,14 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                 String username = username_register.getText().toString();
-                String name = name_register.getText().toString();
+                String fullName = name_register.getText().toString();
                 String email = email_register.getText().toString();
                 String password = password_register.getText().toString();
 
 
                 // Conditions for correct input
 
-                if (email.isEmpty()|| name.isEmpty()||password.isEmpty()||username.isEmpty()){
+                if (email.isEmpty()|| fullName.isEmpty()||password.isEmpty()||username.isEmpty()){
                         showMessage(" All fields are required ");
                         fab.show();
                         pd.hide();
@@ -84,7 +84,7 @@ public class SignUpActivity extends AppCompatActivity {
                     fab.show();
                     pd.hide();
                 }else{
-                    createUser(username,name,email,password);
+                    createUser(username,fullName,email,password);
                 }
             }
         });
@@ -99,7 +99,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    private void createUser(final String username, final String name, String email, String password) {
+    private void createUser(final String username, final String fullName, String email, String password) {
         auth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -112,7 +112,7 @@ public class SignUpActivity extends AppCompatActivity {
                             HashMap<String,Object > hashMap = new HashMap<>();
                             hashMap.put("id",userId);
                             hashMap.put("username",username.toLowerCase());
-                            hashMap.put("fullname",name);
+                            hashMap.put("fullname",fullName);
                             hashMap.put("bio","");
                             hashMap.put("imageUrl","https://firebasestorage.googleapis.com/v0/b/instafirst-a91d7.appspot.com/o/profilepic.png?alt=media&token=0f3ff98c-6c42-437a-8dcb-9bc28fc1d168");
 
