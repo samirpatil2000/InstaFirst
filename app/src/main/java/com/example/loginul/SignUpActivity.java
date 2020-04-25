@@ -88,15 +88,6 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
-
-
-
-
-
     }
 
     private void createUser(final String username, final String fullName, String email, String password) {

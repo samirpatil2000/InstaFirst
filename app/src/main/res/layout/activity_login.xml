@@ -7,6 +7,7 @@
         android:layout_height="match_parent"
         tools:context=".LoginActivity">
 
+
     <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
@@ -136,6 +137,7 @@
                     android:padding="15dp"
                     android:text="Forgot Password"
                     android:textSize="18sp"
+                    android:id="@+id/forget_password"
                     android:textStyle="bold" />
         </RelativeLayout>
     </LinearLayout>
