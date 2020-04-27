@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.text.InputType;
+import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -36,19 +37,19 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        getWindow().setStatusBarColor(Color.TRANSPARENT);
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        getSupportActionBar().hide();
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+//        getWindow().setStatusBarColor(Color.TRANSPARENT);
+//        Window w = getWindow();
+//        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+//        getSupportActionBar().hide();
         forgetPassword=findViewById(R.id.forget_password);
 
         login_email=findViewById(R.id.email_Login);
         login_password=findViewById(R.id.password_login);
 
         auth=FirebaseAuth.getInstance();
-          pd = new ProgressDialog(LoginActivity.this);
+        pd = new ProgressDialog(LoginActivity.this);
 
 
 
@@ -67,9 +68,17 @@ public class LoginActivity extends AppCompatActivity {
                 String str_password = login_password.getText().toString();
 
                 if (str_email.isEmpty() || str_password.isEmpty()){
+                    pd.dismiss();
                     showMessage("All Fields are required ");
                 }
-                else{
+                else if (!Patterns.EMAIL_ADDRESS.matcher(str_email).matches()){
+                    pd.dismiss();
+                    showMessage(" Invalid Email");
+                    login_email.setError("Invalid Email");
+                    login_email.setFocusable(true);
+                }
+                else
+                {
                     auth.signInWithEmailAndPassword(str_email,str_password)
                             .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -80,25 +89,22 @@ public class LoginActivity extends AppCompatActivity {
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                         startActivity(intent);
                                         finish();
-                                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users")
-                                                .child(auth.getCurrentUser().getUid());
-                                        reference.addValueEventListener(new ValueEventListener() {
-                                            @Override
-                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                                pd.dismiss();
-                                                Intent intent = new Intent (LoginActivity.this,BottomActivity.class);
-                                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                                startActivity(intent);
-                                                finish();
-
-                                            }
-
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-
-                                            }
-                                        });
+//                                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users")
+//                                                .child(auth.getCurrentUser().getUid());
+//                                        reference.addValueEventListener(new ValueEventListener() {
+//                                            @Override
+//                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                                                pd.dismiss();
+//                                                Intent intent = new Intent (LoginActivity.this,BottomActivity.class);
+//                                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                                                startActivity(intent);
+//                                                finish();
+//                                            }
+//                                            @Override
+//                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                                            }
+//                                        });
 
                                     }else {
                                         pd.dismiss();
@@ -197,7 +203,6 @@ public class LoginActivity extends AppCompatActivity {
         if (user != null) {
             // user is already connected so we need to redirect
             startActivity(new Intent(LoginActivity.this,BottomActivity.class));
-
 
         }
 

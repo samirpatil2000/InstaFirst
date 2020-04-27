@@ -55,7 +55,10 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="30dp"
                 android:background="#999999" />
-
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                app:passwordToggleEnabled="true"
+                android:layout_height="wrap_content">
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,7 +70,7 @@
                 android:padding="15dp"
                 android:textColor="#292929"
                 android:textColorHint="#797979" android:id="@+id/password_login"/>
-
+        </com.google.android.material.textfield.TextInputLayout>
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
