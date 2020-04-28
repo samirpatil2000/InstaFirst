@@ -1,54 +1,52 @@
 package com.example.loginul.Model;
 
 public class User {
-    private String id;
-    private String username;
-    private String fullName;
-    private String imageUrl;
-    private String bio;
 
-    public User(String id, String username, String fullName, String imageUrl, String bio) {
-        this.id = id;
-        this.username = username;
-        this.fullName = fullName;
-        this.imageUrl = imageUrl;
+    String name,email,search,image_profile,bio,uid;
+
+    public  User(){
+
+    }
+
+    public User(String name, String email, String search, String image_profile, String bio, String uid) {
+        this.name = name;
+        this.email = email;
+        this.search = search;
+        this.image_profile = image_profile;
         this.bio = bio;
+        this.uid = uid;
     }
 
-    public User() {
-
+    public String getName() {
+        return name;
     }
 
-    public String getId() {
-        return id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getEmail() {
+        return email;
     }
 
-    public String getUsername() {
-        return username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getSearch() {
+        return search;
     }
 
-    public String getFullName() {
-        return fullName;
+    public void setSearch(String search) {
+        this.search = search;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public String getImage_profile() {
+        return image_profile;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImage_profile(String image_profile) {
+        this.image_profile = image_profile;
     }
 
     public String getBio() {
@@ -57,5 +55,13 @@ public class User {
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }

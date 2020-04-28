@@ -160,12 +160,12 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
                     }
 
                     // Cover Image
-                    try {
-                        Glide.with(getActivity()).load(coverPhoto).into(profile_coverImg);
-                    }
-                    catch (Exception e){
-                        Glide.with(getActivity()).load(R.drawable.ic_home_black_24dp).into(profile_coverImg);
-                    }
+//                    try {
+//                        Glide.with(getActivity()).load(coverPhoto).into(profile_coverImg);
+//                    }
+//                    catch (Exception e){
+//                        Glide.with(getActivity()).load(R.drawable.ic_home_black_24dp).into(profile_coverImg);
+//                    }
 
 
                 }
