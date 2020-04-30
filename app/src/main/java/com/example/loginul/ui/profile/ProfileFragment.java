@@ -238,7 +238,7 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
                 else if( which ==2){
                     // Edit name
                     pd.setMessage("Updating Name");
-                    showNameUpdateDialog("name");
+                    showNameUpdateDialog("FullName");
 //                    pd.show();
                 }
                 else if (which == 3){

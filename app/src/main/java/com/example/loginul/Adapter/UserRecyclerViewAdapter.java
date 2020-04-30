@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.loginul.Model.User;
 import com.example.loginul.R;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 import java.util.List;
 
@@ -37,8 +36,8 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        String userImage = userList.get(position).getImage_profile();
-        final String userName = userList.get(position).getName();
+        String userImage = userList.get(position).getProfile_image();
+        final String userName = userList.get(position).getFullName();
         String userEmail = userList.get(position).getEmail();
 
 
@@ -50,7 +49,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(gContext,""+ userName,Toast.LENGTH_LONG).show();
+                Toast.makeText(gContext,""+ userName,Toast.LENGTH_SHORT).show();
             }
         });
 

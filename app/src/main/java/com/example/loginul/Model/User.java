@@ -2,32 +2,33 @@ package com.example.loginul.Model;
 
 public class User {
 
-    String name,email,search,image_profile,bio,uid;
+    String FullName,email,search,profile_image,bio,uid;
 
     public  User(){
 
     }
 
-    public User(String name, String email, String search, String image_profile, String bio, String uid) {
-        this.name = name;
+    public User(String name, String email, String search, String profile_image, String bio, String uid) {
+        this.FullName = name;
         this.email = email;
         this.search = search;
-        this.image_profile = image_profile;
+        this.profile_image = profile_image;
         this.bio = bio;
         this.uid = uid;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return FullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullName) {
+        this.FullName = fullName;
     }
 
     public String getEmail() {
         return email;
     }
+
 
     public void setEmail(String email) {
         this.email = email;
@@ -41,12 +42,12 @@ public class User {
         this.search = search;
     }
 
-    public String getImage_profile() {
-        return image_profile;
+    public String getProfile_image() {
+        return profile_image;
     }
 
-    public void setImage_profile(String image_profile) {
-        this.image_profile = image_profile;
+    public void setProfile_image(String image_profile) {
+        this.profile_image = image_profile;
     }
 
     public String getBio() {
