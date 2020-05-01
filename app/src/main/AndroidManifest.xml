@@ -19,6 +19,9 @@
             android:theme="@style/AppTheme">
         <activity android:name=".ProfileEditActivity">
         </activity>
+        <activity android:name=".ChatActivity"
+                  android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity
                 android:name=".BottomActivity"
                 android:label="@string/title_activity_bottom">

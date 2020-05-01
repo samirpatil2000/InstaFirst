@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.loginul.R;
 
-public class NotificationsFragment extends Fragment {
+public class ChatFragment extends Fragment {
 
     private NotificationsViewModel notificationsViewModel;
 
@@ -20,14 +20,14 @@ public class NotificationsFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         notificationsViewModel =
                 ViewModelProviders.of(this).get(NotificationsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+        View root = inflater.inflate(R.layout.fragment_chat, container, false);
         final TextView textView = root.findViewById(R.id.text_notifications);
-        notificationsViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+//        notificationsViewModel.getText().observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
         return root;
     }
 }

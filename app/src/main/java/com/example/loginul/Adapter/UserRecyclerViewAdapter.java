@@ -1,6 +1,7 @@
 package com.example.loginul.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import com.example.loginul.ChatActivity;
 import com.example.loginul.Model.User;
 import com.example.loginul.R;
 
@@ -36,6 +38,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
+        final String userId = userList.get(position).getUid();
         String userImage = userList.get(position).getProfile_image();
         final String userName = userList.get(position).getFullName();
         String userEmail = userList.get(position).getEmail();
@@ -50,6 +53,10 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
             @Override
             public void onClick(View v) {
                 Toast.makeText(gContext,""+ userName,Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(gContext, ChatActivity.class);
+                intent.putExtra("userId" , userId);
+                gContext.startActivity(intent);
             }
         });
 

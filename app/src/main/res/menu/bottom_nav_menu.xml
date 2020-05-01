@@ -15,8 +15,8 @@
             android:title="Add Post"/>
     <item
             android:id="@+id/navigation_notifications"
-            android:icon="@drawable/ic_action_likes"
-            android:title="Notifications"/>
+            android:icon="@drawable/ic_chat"
+            android:title="Chats"/>
     <item
             android:id="@+id/navigation_profile"
             android:icon="@drawable/ic_dashboard_black_24dp"
