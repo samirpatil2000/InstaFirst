@@ -125,6 +125,8 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
 
 
         Query query = databaseReference.orderByChild("email").equalTo(current_user.getEmail());
+
+        // get the the user data from data
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

@@ -38,7 +38,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        final String userId = userList.get(position).getUid();
+        final String userId = userList.get(position).getId();
         String userImage = userList.get(position).getProfile_image();
         final String userName = userList.get(position).getFullName();
         String userEmail = userList.get(position).getEmail();
@@ -55,11 +55,10 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
                 Toast.makeText(gContext,""+ userName,Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(gContext, ChatActivity.class);
-                intent.putExtra("userId" , userId);
+                intent.putExtra("herId" , userId);
                 gContext.startActivity(intent);
             }
         });
-
 
     }
 
@@ -72,7 +71,6 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
 
         ImageView profile_pic;
         TextView name,email;
-
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
