@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                     }else {
                                         pd.dismiss();
-                                        showMessage("Authentication Failed");
+                                        showMessage("Authentication Failed" + task.getException().toString());
                                     }
 
                                 }
@@ -124,8 +124,6 @@ public class LoginActivity extends AppCompatActivity {
                 showPasswordRecoveryDialog();
             }
         });
-
-
 
     }
 
@@ -201,11 +199,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
+
             // user is already connected so we need to redirect
             startActivity(new Intent(LoginActivity.this,BottomActivity.class));
 
         }
-
-
     }
 }

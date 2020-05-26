@@ -124,9 +124,9 @@ public class SearchFragment extends Fragment {
 
 
                     // get all user expect current User
-//                    if(!user.getUid().equals(firebaseUser.getUid())) {
+                    if(!user.getId().equals(firebaseUser.getUid())) {
                         gUser.add(user);
-//                    }
+                    }
                 }
                 adapter=new UserRecyclerViewAdapter(getActivity(), gUser);
                 recyclerView.setAdapter(adapter);

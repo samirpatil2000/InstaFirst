@@ -73,8 +73,6 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
 
 
 
-
-
     private ProfileViewModel homeViewModel;
 
     TextView profile_username,profile_fullName,profile_email,profile_bio;
@@ -99,6 +97,8 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
         fab=root.findViewById(R.id.fab_profile_edit);
 
         pd= new ProgressDialog(getActivity());
+        pd.setTitle("loading..");
+        pd.show();
 
 
 //        profile_fullName=root.findViewById(R.id.profile_fullname);
@@ -119,8 +119,8 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
 
 
         // init firebase
-        firebaseDatabase=FirebaseDatabase.getInstance();
-        databaseReference=firebaseDatabase.getReference("Users");
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Users");
         storageReference = getInstance().getReference();
 
 
@@ -140,6 +140,10 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
                     String image= "" + ds.child("profile_image").getValue();
                     String email= "" +ds.child("email").getValue();
                     String coverPhoto="" +ds.child("coverImage").getValue();
+
+
+
+                    pd.dismiss();
 
 
 
@@ -206,12 +210,6 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
                 startActivity(i1);
                 Toast.makeText(getActivity(), "Logout Successfully!", Toast.LENGTH_SHORT).show(); }
         });
-
-
-
-
-
-
 
         return root;
     }
@@ -325,8 +323,6 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
                 if(which ==0){
                     // Clicked On Camera
                     checkAndRequestForPermissionForCamera();
-
-
                 }
                 else if (which == 1){
                     // Clicked On Gallery
@@ -444,7 +440,7 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
                                     pd.dismiss();
-                                    Toast.makeText(getActivity(),"Failed ",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity()," Failed ",Toast.LENGTH_SHORT).show();
                                 }
                             });
 
@@ -454,11 +450,12 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
                             Toast.makeText(getActivity(),"Some Error Occured",Toast.LENGTH_SHORT).show();
                         }
                     }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                pd.dismiss();
-                Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        pd.dismiss();
+                        Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
 

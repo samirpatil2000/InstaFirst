@@ -33,7 +33,6 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
         MyHolder viewHolder = new MyHolder(view);
 
         return viewHolder;
-
     }
 
     @Override
@@ -77,6 +76,8 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
             profile_pic=itemView.findViewById(R.id.user_list_profileImg);
             name=itemView.findViewById(R.id.user_list_name);
             email=itemView.findViewById(R.id.user_list_email);
+
+
 
         }
     }
