@@ -34,7 +34,7 @@
             </TextView>
             <TextView
                     android:layout_width="match_parent"
-                    android:text=" online "
+                    android:text="  "
                     android:layout_height="wrap_content" android:textSize="14sp" android:textColor="#FAF8F8"
                     android:id="@+id/chat_status">
             </TextView>

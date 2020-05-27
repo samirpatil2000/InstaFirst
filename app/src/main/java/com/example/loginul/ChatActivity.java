@@ -2,6 +2,7 @@ package com.example.loginul;
 
 import android.content.Intent;
 import android.text.TextUtils;
+import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,14 +22,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class ChatActivity extends AppCompatActivity {
 
     Toolbar toolbar;
-    TextView her_name;
+    TextView her_name,onlineStatusTv;
     RecyclerView recyclerView;
     ImageView profile_image;
     EditText messageEt;
@@ -84,6 +83,11 @@ public class ChatActivity extends AppCompatActivity {
         messageEt = findViewById(R.id.chat_message);
         sendBtn = findViewById(R.id.chat_send_imgButton);
         her_name= findViewById(R.id.chat_name);
+        onlineStatusTv=findViewById(R.id.chat_status);
+
+
+
+
 
 
         // Layout (linearlayout) for recycler view
@@ -139,6 +143,21 @@ public class ChatActivity extends AppCompatActivity {
                     // get data
                     String name = " " +ds.child("FullName").getValue();
                      herImage = " " +ds.child("profile_image").getValue();
+//
+//                     String onlineStatus = ""+ds.child("onlineStatus").getValue();
+//
+//                     if (onlineStatus.equals("online")){
+//                      //   onlineStatusTv.setText(onlineStatus);
+//                     }else {
+//                         // convert time stamp mm/dd/yy
+//
+//                         Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+//                         cal.setTimeInMillis(Long.parseLong(onlineStatus));
+//                         String dateTime = DateFormat.format("dd/MM/yyyy hh:mm aa" ,cal).toString();
+//                       //  onlineStatusTv.setText("last Seen at : "+dateTime);
+//                     }
+
+
 
                     //set data
 
@@ -273,9 +292,21 @@ public class ChatActivity extends AppCompatActivity {
         }
     }
 
+
+    private  void checkOnlineStatus(String status){
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(myuid);
+        HashMap<String , Object> hashMap = new HashMap<>();
+        hashMap.put("onlineStatus",status);
+
+        // Updating value of online status
+        databaseReference.updateChildren(hashMap);
+
+    }
+
     @Override
     protected void onStart() {
 //        checkUserStatus();
+      //  checkOnlineStatus("online");
         super.onStart();
     }
 
@@ -284,7 +315,18 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        // set offline with last seen time stamp
+//
+//        String timestamp = String.valueOf(System.currentTimeMillis());
+//
+//        checkOnlineStatus(timestamp);
         userRefForSeen.removeEventListener(seenListener);
+    }
+
+    @Override
+    protected void onResume() {
+       // checkOnlineStatus("online");
+        super.onResume();
     }
 
     private void showMessage(String s) {

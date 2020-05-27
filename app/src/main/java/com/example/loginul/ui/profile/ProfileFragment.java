@@ -33,6 +33,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.*;
+import com.google.firebase.database.core.Context;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -47,6 +48,8 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
     FirebaseAuth auth;
     FirebaseUser current_user;
     ProgressDialog pd;
+
+    Context gContext;
 
     // best method to get user name from database
 
@@ -158,12 +161,13 @@ public class ProfileFragment extends Fragment implements GoogleApiClient.OnConne
 //                    profile_fullName.setText(fullname);
 
                     // Profile Img
-                    try {
-                        Glide.with(getActivity()).load(image).into(profile_image);
-                    }
-                    catch (Exception e){
-                        Glide.with(getActivity()).load(R.drawable.ic_home_black_24dp).into(profile_image);
-                    }
+//                    try {
+                //        Glide.with(getActivity()).load(image).into(profile_image);
+//                    }
+//                    catch (Exception e){
+//                        showMessage(e.getMessage());
+//                      //  Glide.with(getActivity().getApplicationContext()).load(R.drawable.ic_home_black_24dp).into(profile_image);
+//                    }
 
                     // Cover Image
 //                    try {

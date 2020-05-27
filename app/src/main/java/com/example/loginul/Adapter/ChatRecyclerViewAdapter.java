@@ -70,13 +70,13 @@ public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatRecyclerVi
 
         holder.messageTv.setText(message);
         holder.timeTv.setText(dateTime);
-        try{
-            Glide.with(gContext).load(imageUrl).into(holder.profile_pic);
-
-        }catch (Exception e){
-            Glide.with(gContext).load(R.drawable.ic_home_black_24dp).into(holder.profile_pic);
-
-        }
+//        try{
+//            Glide.with(gContext).load(imageUrl).into(holder.profile_pic);
+//
+//        }catch (Exception e){
+//            Glide.with(gContext).load(R.drawable.ic_home_black_24dp).into(holder.profile_pic);
+//
+//        }
 
         // set seen/deliverd status of message
 
@@ -91,8 +91,6 @@ public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatRecyclerVi
         }else {
             holder.isSeenTv.setVisibility(View.GONE);
         }
-
-
     }
 
     @Override
@@ -127,7 +125,7 @@ public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatRecyclerVi
         public MyHolder(@NonNull View itemView) {
             super(itemView);
 
-            profile_pic=itemView.findViewById(R.id.profile_img_chat_row);
+         //   profile_pic=itemView.findViewById(R.id.profile_img_chat_row);
             messageTv=itemView.findViewById(R.id.message_chat_row);
             timeTv=itemView.findViewById(R.id.time_chat_row);
             isSeenTv=itemView.findViewById(R.id.chat_row_seen);

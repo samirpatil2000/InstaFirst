@@ -115,6 +115,7 @@ public class SignUpActivity extends AppCompatActivity {
                             hashMap.put("id",userId);
                             hashMap.put("FullName","");
                             hashMap.put("email",email);
+                            hashMap.put("onlineStatus","online");
                             hashMap.put("bio","");
                             hashMap.put("coverImage","");
                             hashMap.put("imageUrl","https://firebasestorage.googleapis.com/v0/b/instafirst-a91d7.appspot.com/o/profilepic.png?alt=media&token=0f3ff98c-6c42-437a-8dcb-9bc28fc1d168");
